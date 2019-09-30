@@ -20,3 +20,12 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: AzureResourceGroupDeployment@2
+  inputs:
+    azureSubscription: 'Microsoft Azure Internal Consumption (cce08a89-ef59-4e00-9da7-666ed183db56)'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'Demo-CSR-RG'
+    location: 'East US'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://github.com/saabdal/devops-project-samples/blob/master/dotnet/aspnetcore/webapp/ArmTemplates/windows-webapp-template.json'
+    deploymentMode: 'Incremental'
